@@ -19,15 +19,7 @@
   <div class="row">
     <div class="col-sm-12 col-md-6 col-md-offset-3">
 
-      <h3><span class="glyphicon glyphicon-link"></span> Install the Heroku Toolbelt</h3>
-      <ul class="bigboy">
-        <li>Download and install the <a href="https://toolbelt.heroku.com/" target="_blank">Heroku Toolbelt</a> or learn more about the <a href="https://devcenter.heroku.com/categories/command-line" target="_blank">Heroku Command Line Interface</a>.</li>
-        <li>If you haven't already, log in to your Heroku account and follow the prompts to create a new SSH public key.</li>
-        <code>
-          $ heroku login
-        </code>
-      </ul>
-
+<!--
       <h3><span class="glyphicon glyphicon-link"></span> Create a new Git repository</h3>
       <ul class="bigboy">
         <li>Initialize a git repository in a new or existing directory</li>
@@ -48,11 +40,23 @@
           $ git push heroku master <br>
         </code>
       </ul>
+-->
+      <h3><span class="glyphicon glyphicon-link"></span> Setup Git repository</h3>
+      <ul class="bigboy">
+        <li>Create the Git repo on your local machine, install and run locally.</li>
+        <code>
+          $ git clone https://github.com/mlaurel/dbc-shuffle.git <br>
+          $ cd dbc-shuffle <br>
+          $ bundle exec rake db:create db:migrate <br>
+          $ bundle exec rails s <br>
+        </code>
+      </ul>
 
-      <h3><span class="glyphicon glyphicon-link"></span> Existing Git repository</h3>
+      <h3><span class="glyphicon glyphicon-link"></span> Set Heroku remote for existing Git repository</h3>
       <ul class="bigboy">
         <li>For existing repositories, simply add the heroku remote</li>
         <code>
+          $ heroku login <br>
           $ heroku git:remote -a dbc-shuffle <br>
         </code>
       </ul>
@@ -62,7 +66,7 @@
         <li>To run the app locally, you can use the heroku local</li>
         <code>
           $ bundle install <br>
-          $ heroku local <br>
+          $ rails s <br>
         </code>
       </ul>
 
