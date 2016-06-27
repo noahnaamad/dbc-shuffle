@@ -1,0 +1,8 @@
+{
+  "name": "devBootcamp Shuffle Application",
+  "description": "A student and cohort shuffling application for devBootcamp, deployed to Heroku",
+  "image": "heroku/ruby",
+  "repository": "https://git.heroku.com/dbc-shuffle.git",
+  "keywords": ["ruby", "rails" ],
+  "addons": [ "heroku-postgresql" ]
+}
