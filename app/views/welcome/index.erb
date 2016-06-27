@@ -5,40 +5,60 @@
     <!--<a href="/" class="lang-logo">-->
       <!--<img src="<%= asset_path('lang-logo.png') %>">-->
     <!--</a>-->
-    <h1>The Asset Pipeline</h1>
-    <p><strong>a.k.a. Sprockets Rails Gem</strong><br>The asset pipeline is technically no longer a core feature of Rails 4, it has been extracted out of the framework into the <a target="_blank" href="https://github.com/rails/sprockets-rails">sprockets-rails gem.</a></p>
-    <a id="dbc" class="btn btn-lg btn-default" href=""><span class="glyphicon glyphicon-flash"></span> Touch My Monkey</a>
+    <h1>devBootcamp Cohort Shuffle</h1>
+    <p><strong>Oh yeah... shuffle it, don't break it!</strong><br>A web based application for shuffling and generating randomized cohorts.  </p>
+    <a id="dbc" class="btn btn-lg btn-default" href="http://heroku.com" target="_blank"><span class="glyphicon glyphicon-flash"></span> Heroku</a>
     <!--<a type="button" class="btn btn-lg btn-primary" href="https://github.com/heroku/ruby-getting-started"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>-->
   </div>
 </div>
-<div class="container">
+<div id="readme" class="container">
   <!--<div class="alert alert-info text-center" role="alert">-->
     <!--To deploy your own copy, and learn the fundamentals of the Heroku platform, head over to the <a href="https://devcenter.heroku.com/articles/getting-started-with-ruby" class="alert-link">Getting Started with Ruby on Heroku</a> tutorial.-->
   <!--</div>-->
   <!--<hr>-->
   <div class="row">
-    <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-link"></span> Main Features</h3>
+    <div class="col-sm-12 col-md-6 col-md-offset-3">
+
+      <h3><span class="glyphicon glyphicon-link"></span> Heroku Setup</h3>
       <ul class="bigboy">
-        <li>The first feature of the pipeline is to concatenate assets, which can reduce the number of requests that a browser makes to render a web page.</li>
-        <li>The second feature of the asset pipeline is asset minification or compression.</li>
-        <li>The third feature of the asset pipeline is it allows coding assets via a higher-level language, with precompilation down to the actual assets. Supported languages include Sass for CSS, CoffeeScript for JavaScript, and ERB for both by default.</li>
+        <li>Install the Heroku Toolbelt</li>
+        <li>Download and install the <a href="https://toolbelt.heroku.com/" target="_blank">Heroku Toolbelt</a> or learn more about the <a href="https://devcenter.heroku.com/categories/command-line" target="_blank">Heroku Command Line Interface</a>.</li>
+        <li>If you haven't already, log in to your Heroku account and follow the prompts to create a new SSH public key.</li>
+        <code>$ heroku login</code>
       </ul>
-    </div>
-    <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-link"></span> Demo Compress and Concat</h3>
+
+      <h3><span class="glyphicon glyphicon-link"></span> Create a new Git repository</h3>
       <ul class="bigboy">
-        <li>Environment settings are located in <code>/config/environments/production.rb</code> (i.e. production settings)</li>
-        <li>Make changes to files in <code>/app/assets/javascripts</code> or <code>/app/assets/stylesheets</code></li>
-        <li>Add or uncomment settings and visually see js and css compression</li>
-        <li>View files in <code>/public/assets</code></li>
+        <li>Initialize a git repository in a new or existing directory</li>
+        <code>
+          $ cd my-project/  <br>
+          $ git init <br>
+          $ heroku git:remote -a dbc-shuffle <br>
+        </code>
       </ul>
+
+      <h3><span class="glyphicon glyphicon-link"></span> Deploy your application</h3>
+      <ul class="bigboy">
+        <li>Commit your code to the repository and deploy it to Heroku using Git.</li>
+        <code>
+          $ git add . <br>
+          $ git commit -am "make it better" <br>
+          $ git push heroku master
+        </code>
+      </ul>
+
+      <h3><span class="glyphicon glyphicon-link"></span> Existing Git repository</h3>
+      <ul class="bigboy">
+        <li>For existing repositories, simply add the heroku remote</li>
+        <code>$ heroku git:remote -a dbc-shuffle</code>
+      </ul>
+
     </div>
   </div> <!-- row -->
   <div class="row">
     <div class="col-md-12 text-center">
       <br><br>
-      <a class="btn btn-lg btn-danger" target="_blank" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&feature=youtu.be"><span class="glyphicon glyphicon-"></span> Danny Don't Click This</a>
+      @Copyright 2016  Maeve Brad Noah Mike
       <br><br>
     </div>
   </div>
