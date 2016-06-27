@@ -8,9 +8,6 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-
-  get '/users/new' => 'users#new'
-
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
