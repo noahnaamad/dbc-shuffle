@@ -13,9 +13,7 @@
   <tbody>
     <% @cohorts.each do |cohort| %>
       <tr>
-        <td></td>
-          <td></td>
-
+        <td><%= link_to "#{cohort.location cohort.name}" %></td>
       </tr>
     <% end %>
   </tbody>
