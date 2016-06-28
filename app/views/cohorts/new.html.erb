@@ -9,8 +9,9 @@
   </p>
 
   <p>
-  <!-- loop through @teachers -->
-    # <%#= select_tag(:teacher_id, options_for_select( <%=  %> )) %>
+
+    <%= f.label :teacher_id, 'I am.. ' %><br>
+    <%= select_tag(:teacher_id, options_for_select(@teachers_drop)) %>
 
   </p>
 
