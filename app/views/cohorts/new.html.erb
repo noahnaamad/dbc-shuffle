@@ -2,4 +2,21 @@
 
 <h1>Add new cohort - will link to the partial from teacher's portal.</h1>
 
+<%= form_for :cohort, url: cohorts_path  do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+  <!-- loop through @teachers -->
+    # <%#= select_tag(:teacher_id, options_for_select( <%=  %> )) %>
+
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
 </div>
