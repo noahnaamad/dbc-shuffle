@@ -9,7 +9,7 @@ class CohortsController < ApplicationController
 
   def new
     # for the dropdown of teachers.. mapping to format select form helper wants, which is [name, value]
-    @teachers_drop = Teacher.all.map {|teacher| [teacher.name, teacher.name]}
+    @teachers_drop = Teacher.all.map {|teacher| [teacher.name, teacher.id]}
   end
 
   def edit
@@ -17,7 +17,7 @@ class CohortsController < ApplicationController
   end
 
   def create
-
+    # @cohort = Cohort.new()
   end
 
   def update

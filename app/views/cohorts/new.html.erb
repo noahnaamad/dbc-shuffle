@@ -9,10 +9,14 @@
   </p>
 
   <p>
-
     <%= f.label :teacher_id, 'I am.. ' %><br>
-    <%= select_tag(:teacher_id, options_for_select(@teachers_drop)) %>
+    <%= f.select(:teacher_id, options_for_select(@teachers_drop)) %>
+  </p>
 
+  <!-- cohort location -->
+  <p>
+    <%= f.label :location %><br>
+    <%= f.select(:location, options_for_select([['San Francisco', 'San Francisco'], ['San Diego', 'San Diego'], ['Chicago', 'Chicago'], ['Austin', 'Austin']])) %>
   </p>
 
   <p>
