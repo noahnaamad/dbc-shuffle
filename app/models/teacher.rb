@@ -5,5 +5,4 @@ class Teacher < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :cohorts
-  ######
 end
