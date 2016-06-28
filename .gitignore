@@ -21,3 +21,5 @@ npm-debug.log
 /bower_components/
 /dist/
 /temp/
+
+.env
