@@ -13,6 +13,8 @@ class CohortsController < ApplicationController
   end
 
   def edit
+    @cohorts = Cohort.find(params[:id])
+    @students = @cohorts.students
   end
 
   def create
