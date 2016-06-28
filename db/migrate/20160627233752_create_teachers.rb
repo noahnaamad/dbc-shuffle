@@ -1,9 +1,8 @@
 class CreateTeachers < ActiveRecord::Migration
   def change
     create_table :teachers do |t|
-      t.string :name
-      t.string :location
-      t.integer :admin
+      t.string :name, null: false
+      t.integer :admin, null: false
 
       t.timestamps null: false
     end

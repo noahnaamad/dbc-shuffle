@@ -1,0 +1,26 @@
+<div class="container">
+
+<h1>Add new cohort - will link to the partial from teacher's portal.</h1>
+
+<%= form_for :cohort, url: cohorts_path  do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :teacher_id, 'I am.. ' %><br>
+    <%= f.select(:teacher_id, options_for_select(@teachers_drop)) %>
+  </p>
+
+  <p>
+    <%= f.label :location %><br>
+    <%= f.select(:location, options_for_select([['San Francisco', 'San Francisco'], ['San Diego', 'San Diego'], ['Chicago', 'Chicago'], ['Austin', 'Austin']])) %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+</div>
