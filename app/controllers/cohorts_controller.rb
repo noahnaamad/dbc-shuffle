@@ -17,7 +17,15 @@ class CohortsController < ApplicationController
   end
 
   def create
-    # @cohort = Cohort.new()
+    puts "============="
+    puts cohort_params
+    @cohort = Cohort.new(cohort_params)
+
+    if @cohort.save
+      redirect_to cohorts_path
+    else
+      render 'new'
+    end
   end
 
   def update
@@ -28,5 +36,8 @@ class CohortsController < ApplicationController
 
   end
 
-
+  private
+    def cohort_params
+      params.require(:cohort).permit(:name, :location, :teacher_id)
+    end
 end

@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20160627233931) do
 
   create_table "cohorts", force: :cascade do |t|
     t.string   "name"
+    t.string   "location",   null: false
     t.integer  "teacher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -30,13 +31,11 @@ ActiveRecord::Schema.define(version: 20160627233931) do
   end
 
   create_table "pairs", force: :cascade do |t|
-
     t.integer  "stud1_id"
     t.integer  "stud2_id"
     t.integer  "score",      default: 0
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-
   end
 
   create_table "students", force: :cascade do |t|
@@ -48,18 +47,9 @@ ActiveRecord::Schema.define(version: 20160627233931) do
 
   create_table "teachers", force: :cascade do |t|
     t.string   "name",       null: false
-    t.string   "location",   null: false
     t.integer  "admin",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "widgets", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
-    t.integer  "stock"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
 end
