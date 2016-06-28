@@ -1,17 +1,18 @@
 <div class="container">
-  <title>
+  <h1>
     Cohort Show Page Yo
-  </title>
+  </h1>
 
-  <div>
-      Welcome to the <%= Cohort.name %> Cohort!
-  </div>
+  <h4>
+      Welcome to the <%= @cohort.location%> <%=@cohort.name %> Cohort! Here are the groups for Today:
+  </h4>
 
-  <ul>
+
+  <ul> <%= @cohort.students %>
       <li>
 
       </li>
   </ul>
-
+pgs.students doesnt work
 </div>
-#reveal all of the students in the cohort
+
