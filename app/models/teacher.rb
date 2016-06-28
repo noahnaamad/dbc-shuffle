@@ -4,5 +4,5 @@ class Teacher < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :cohorts
+  has_many :cohorts, through: :locations
 end
