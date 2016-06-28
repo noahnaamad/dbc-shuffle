@@ -5,4 +5,3 @@ class Cohort < ActiveRecord::Base
 end
 
 
-# zxg
