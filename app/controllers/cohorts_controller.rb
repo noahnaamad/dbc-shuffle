@@ -4,7 +4,7 @@ class CohortsController < ApplicationController
   end
 
   def show
-
+    @cohort = Cohort.find(params[:id])
   end
 
   def new
@@ -13,7 +13,6 @@ class CohortsController < ApplicationController
   end
 
   def edit
-
   end
 
   def create
@@ -22,18 +21,18 @@ class CohortsController < ApplicationController
     @cohort = Cohort.new(cohort_params)
 
     if @cohort.save
+      flash[:notice] = 'Cohort added!'
       redirect_to cohorts_path
+
     else
       render 'new'
     end
   end
 
   def update
-
   end
 
   def destroy
-
   end
 
   private
