@@ -1,9 +1,8 @@
 class CreateCohorts < ActiveRecord::Migration
   def change
-    create_table :cohorts do |t|
-      t.string :name
-      t.string :location, null: false
-      t.integer :teacher_id
+    create_table  :cohorts do |t|
+      t.string    :name
+      t.integer   :location_id, null: false
 
       t.timestamps null: false
     end

@@ -9,16 +9,21 @@
 # require 'faker'
 
 Teacher.delete_all
+Location.delete_all
 Cohort.delete_all
 Group.delete_all
 Student.delete_all
 Pair.delete_all
 
-teacher1  = Teacher.create( name: "Kevin Miagiado",  admin: 1 )
-teacher2  = Teacher.create( name: "Mark Solo",       admin: 0 )
+# teacher1  = Teacher.create( name: "Kevin Miagiado", location_id: 1, admin: 1 )
+# teacher2  = Teacher.create( name: "Mark Solo",      location_id: 1, admin: 0 )
+# teacher3  = Teacher.create( name: "Joe Schmoe",     location_id: 2, admin: 0 )
 
-cohort1   = Cohort.create( name: "Pocket Gophers", location: "San Diego", teacher_id: 1 )
-cohort2   = Cohort.create( name: "Red Pandas",     location: "Chicago",   teacher_id: 2 )
+location1  = Location.create( name: "San Diego" )
+location2  = Location.create( name: "Chicago" )
+
+cohort1   = Cohort.create( name: "Pocket Gophers",  location_id: 1 )
+cohort2   = Cohort.create( name: "Red Pandas",      location_id: 2 )
 
 group1     = Group.create( cohort_id: 1 )
 group2     = Group.create( cohort_id: 1 )
