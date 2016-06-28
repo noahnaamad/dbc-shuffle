@@ -18,11 +18,11 @@ Pair.delete_all
 # locations = ["San Diego", "Los Angeles", "Chicago", "New Hope"]
 # cohorts   = ["Pocket Gophers", "Red Pandas", "Brown Bears", "Amradillios", "Angry Apes"]
 
-teacher1  = Teacher.create( name: "Kevin Miagiado",  location: "San Diego",  admin: 1 )
-teacher2  = Teacher.create( name: "Mark Solo",       location: "Chicago",    admin: 0 )
+teacher1  = Teacher.create( name: "Kevin Miagiado",  admin: 1 )
+teacher2  = Teacher.create( name: "Mark Solo",       admin: 0 )
 
-cohort1   = Cohort.create( name: "Pocket Gophers", teacher_id: 1 )
-cohort2   = Cohort.create( name: "Red Pandas",     teacher_id: 2 )
+cohort1   = Cohort.create( name: "Pocket Gophers", location: "San Diego", teacher_id: 1 )
+cohort2   = Cohort.create( name: "Red Pandas",     location: "Chicago",   teacher_id: 2 )
 
 group1     = Group.create( cohort_id: 1 )
 group2     = Group.create( cohort_id: 1 )

@@ -11,12 +11,18 @@
 </head>
 <body>
 
-<p id="notice"><%= flash.notice %></p>
 <!--
-!! TODO:
+!! TODO: navbar with !!
 teacher login
 teacher register
 logout -->
+
+<% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
 
 <%= yield %>
 
