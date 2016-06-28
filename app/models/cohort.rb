@@ -1,6 +1,6 @@
 class Cohort < ActiveRecord::Base
   has_many :groups
-  has_many :students
+  has_many :students, through: :groups
 
 
   def self.pair_students ##ish???
@@ -8,7 +8,7 @@ class Cohort < ActiveRecord::Base
 	pairing_score = 0
 	pairs = []
 	remainder = []
-	while !arr.empty? 
+	while !arr.empty?
 		if arr.length == 1
 			remainder << arr[0]
 		else
