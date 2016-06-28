@@ -6,14 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
 # require 'faker'
 
 Teacher.delete_all
@@ -25,8 +17,8 @@ Pair.delete_all
 teacher1  = Teacher.create( name: "Kevin Miagiado",  admin: 1 )
 teacher2  = Teacher.create( name: "Mark Solo",       admin: 0 )
 
-cohort1   = Cohort.create( name: "Pocket Gophers", location: "San Diego",  teacher_id: 1 )
-cohort2   = Cohort.create( name: "Red Pandas",     location: "Chicago",    teacher_id: 2 )
+cohort1   = Cohort.create( name: "Pocket Gophers", location: "San Diego", teacher_id: 1 )
+cohort2   = Cohort.create( name: "Red Pandas",     location: "Chicago",   teacher_id: 2 )
 
 group1     = Group.create( cohort_id: 1 )
 group2     = Group.create( cohort_id: 1 )
@@ -67,4 +59,3 @@ pair5      = Pair.create( stud1_id: 9,  stud2_id: 10, score: 0 )
 pair6      = Pair.create( stud1_id: 11, stud2_id: 12, score: 0 )
 pair7      = Pair.create( stud1_id: 13, stud2_id: 14, score: 0 )
 pair8      = Pair.create( stud1_id: 15, stud2_id: 16, score: 0 )
-
