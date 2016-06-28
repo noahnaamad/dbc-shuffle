@@ -76,6 +76,11 @@ test:
 #
 # You can use this database configuration with:
 #
+
+staging:
+  <<: *default
+  url: <%= ENV['DATABASE_URL_STAGE'] %>
+
 production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
@@ -85,3 +90,5 @@ production:
 # database: dd0jia4u8t1gqr
 # username: jweamawoplfjpx
 # password: <%= ENV['DBC-SHUFFLE-PASS'] %>
+
+
