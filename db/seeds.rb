@@ -16,11 +16,11 @@
 
 # require 'faker'
 
-# Teacher.delete_all
-# Cohort.delete_all
-# Group.delete_all
-# Student.delete_all
-# Pair.delete_all
+Teacher.delete_all
+Cohort.delete_all
+Group.delete_all
+Student.delete_all
+Pair.delete_all
 
 teacher1  = Teacher.create( name: "Kevin Miagiado",  admin: 1 )
 teacher2  = Teacher.create( name: "Mark Solo",       admin: 0 )
