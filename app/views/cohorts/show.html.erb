@@ -3,19 +3,12 @@
     Cohort Show Page Yo
   </h1>
 
-  <h4>
+  <p>
       Hello Student! Welcome to the <%= @cohort.location%> <%=@cohort.name %> Cohort! Here are the groups for Today:
-  </h4>
+  </p>
 
+  <%= render partial: "cohort" %>
 
-  <ul>
-      <% @cohort.students.each do |student| %>
-            <li>
-                <%= student.name %>
-                <%= student.group_id %>
-            </li>
-      <% end  %>
-  </ul>
 
 </div>
 

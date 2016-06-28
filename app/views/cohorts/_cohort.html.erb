@@ -1,0 +1,10 @@
+<h2><%=@cohort.name %><h2>
+<h4><%= @cohort.location%></h4>
+<ul>
+    <% @cohort.students.each do |student| %>
+          <li>
+              <%= student.name %>
+              <%= student.group_id %>
+          </li>
+    <% end  %>
+</ul>

@@ -1,12 +1,13 @@
 <div class="container">
-  <h1>Teacher Cohort Edit Page</h1>
+  <h1>
+    Cohort Edit Page
+  </h1>
 
-  <h2><%= Cohort.name %></h2>
-  <ul>
-    <% @students.each do |student| %>
-      <li><%= student.name %></li>
-    <% end %>
-  <ul>
+  <p>
+      Select the students below to custom sort, or use the options to manage the cohort.
+  </p>
+
+  <%= render partial: "cohort" %>
 
 
 
