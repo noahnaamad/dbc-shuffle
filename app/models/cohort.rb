@@ -1,11 +1,10 @@
 class Cohort < ActiveRecord::Base
-  has_many :teachers
   has_many :groups
   has_many :students
 
 
   def self.pair_students ##ish???
-	arr = Cohort.students
+	arr = self.students.to_a
 	pairing_score = 0
 	pairs = []
 	remainder = []
