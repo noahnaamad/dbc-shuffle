@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 20160627233931) do
 
   create_table "cohorts", force: :cascade do |t|
     t.string   "name"
-    t.string   "location",   null: false
     t.integer  "teacher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -46,10 +45,19 @@ ActiveRecord::Schema.define(version: 20160627233931) do
   end
 
   create_table "teachers", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.integer  "admin",      null: false
+    t.string   "name"
+    t.string   "location"
+    t.integer  "admin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "widgets", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "stock"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
