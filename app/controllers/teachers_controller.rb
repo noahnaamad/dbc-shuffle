@@ -1,7 +1,7 @@
-class TeachersController < ActionController::Base
+class TeachersController < ApplicationController
 
   def show
-    @teacher = current_teacher
+    @cohorts_in_location = current_teacher.location.cohorts
   end
 
   def create

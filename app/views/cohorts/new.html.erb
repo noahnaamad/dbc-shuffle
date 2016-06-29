@@ -2,27 +2,6 @@
 
 <h1>Add new cohort - will link to the partial from teacher's portal.</h1>
 
-<%= form_for :cohort, url: cohorts_path  do |f| %>
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
-
-  <p>
-    <%= f.label :location_id %><br>
-
-    <%= f.select(:location_id, options_for_select(locations_for_select)) %>
-
-  </p>
-
-
-<!-- MAEVE - ADD SECTION HERE IN PARTIAL TO ADD STUDENTS, and make sure controller saves students to DB associated with everything they need to be -->
-
-<!-- ALSO, NEEDS TO ASSOCIATE THE COHORT WITH THE TEACHER WHO CREATED IT. I created a @teachers_drop class variable in the #new route, or just do it using the current_teacher -->
-
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<%= render partial: 'form' %>
 
 </div>
