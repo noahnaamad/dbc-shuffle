@@ -4,6 +4,15 @@ Rails.application.routes.draw do
 
   resources 'cohorts'
 
+  namespace :admin do
+    resources :teachers, only: [:index, :create, :destroy]
+  end
+
+  #     # Directs /admin/products/* to Admin::ProductsController
+  #     # (app/controllers/admin/products_controller.rb)
+  #     resources :products
+  #   end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
