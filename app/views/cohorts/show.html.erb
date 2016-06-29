@@ -11,8 +11,7 @@
   </div>
 
   <div class="right">
-  <%= render partial: "cohorts/cohort" %>
-
+    <%= render partial: "cohorts/cohort" %>
 
     <%= form_for :cohort, url: generate_cohort_groups_path(@cohort), method: "get" do |f| %>
     <!-- form_for @size (controller: "cohort", action: "update") do |f| -->
@@ -40,7 +39,6 @@
         <%= f.submit "Generate Groups" %>
       </div>
     <% end %>
-
 
     <%= button_to 'save', edit_cohort_path(@cohort) %>
 
