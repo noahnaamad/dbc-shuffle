@@ -8,16 +8,9 @@ before_action :configure_sign_up_params, only: [:create]
   # end
 
   # POST /resource
-  def create
-    @teacher = Teacher.new(params[:teacher])
-    if @teacher.save
-      flash[:notice] = 'Teacher added!'
-      redirect_to '/admin/teachers'
-    else
-      render 'new'
-    end
-    # super
-  end
+  # def create
+  #
+  # end
 
   # GET /resource/edit
   # def edit
