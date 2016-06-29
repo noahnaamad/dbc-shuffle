@@ -1,6 +1,7 @@
 class Cohort < ActiveRecord::Base
   has_many :groups
   has_many :students, through: :groups
+  belongs_to :location
 
 
   def self.pair_students ##ish???
