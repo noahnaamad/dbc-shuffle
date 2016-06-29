@@ -1,0 +1,181 @@
+/* line 2, /www/dbc/dbc-shuffle/app/assets/stylesheets/cohorts.scss */
+#add_cohort_form {
+  display: none;
+}
+/* line 1, /www/dbc/dbc-shuffle/app/assets/stylesheets/scaffolds.css.scss */
+main {
+  margin: 10px;
+  padding: 10px;
+}
+
+/* line 10, /www/dbc/dbc-shuffle/app/assets/stylesheets/scaffolds.css.scss */
+.panel {
+  float: left;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px 10px 10px 20px;
+}
+/* line 5, /www/dbc/dbc-shuffle/app/assets/stylesheets/theme.css.scss */
+.jumbotron {
+  background: #532F8C;
+  color: white;
+  padding-bottom: 80px;
+}
+/* line 10, /www/dbc/dbc-shuffle/app/assets/stylesheets/theme.css.scss */
+.jumbotron .btn-primary {
+  background: #845ac7;
+  border-color: #845ac7;
+}
+/* line 13, /www/dbc/dbc-shuffle/app/assets/stylesheets/theme.css.scss */
+.jumbotron .btn-primary:hover {
+  background: #7646c1;
+}
+/* line 18, /www/dbc/dbc-shuffle/app/assets/stylesheets/theme.css.scss */
+.jumbotron p {
+  color: #d9ccee;
+  max-width: 75%;
+  margin: 1em auto 2em;
+}
+/* line 24, /www/dbc/dbc-shuffle/app/assets/stylesheets/theme.css.scss */
+.navbar + .jumbotron {
+  margin-top: -20px;
+}
+/* line 28, /www/dbc/dbc-shuffle/app/assets/stylesheets/theme.css.scss */
+.jumbotron .lang-logo {
+  display: block;
+  background: #B01302;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  border: 2px solid white;
+}
+/* line 37, /www/dbc/dbc-shuffle/app/assets/stylesheets/theme.css.scss */
+.jumbotron .lang-logo img {
+  max-width: 100%;
+}
+
+/* line 46, /www/dbc/dbc-shuffle/app/assets/stylesheets/theme.css.scss */
+.admin-home h4 {
+  margin: 5px 0;
+  padding: 5px;
+  background-color: #efefef;
+}
+/* line 51, /www/dbc/dbc-shuffle/app/assets/stylesheets/theme.css.scss */
+.admin-home .admin-list, .admin-home .admin-new {
+  margin: 10px 0;
+  padding: 10px 0;
+}
+
+/* line 66, /www/dbc/dbc-shuffle/app/assets/stylesheets/theme.css.scss */
+.nav {
+  background-color: black;
+}
+
+/* line 70, /www/dbc/dbc-shuffle/app/assets/stylesheets/theme.css.scss */
+.nav-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: black;
+}
+
+/* line 78, /www/dbc/dbc-shuffle/app/assets/stylesheets/theme.css.scss */
+.link {
+  float: left;
+}
+
+/* line 82, /www/dbc/dbc-shuffle/app/assets/stylesheets/theme.css.scss */
+.navbar-link {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* line 90, /www/dbc/dbc-shuffle/app/assets/stylesheets/theme.css.scss */
+.cohort-show {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+/* line 97, /www/dbc/dbc-shuffle/app/assets/stylesheets/theme.css.scss */
+.title {
+  margin-top: 1em;
+  border: 2px solid black;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* line 104, /www/dbc/dbc-shuffle/app/assets/stylesheets/theme.css.scss */
+.item {
+  margin-top: 1em;
+  text-align: center;
+  padding: .5em;
+}
+/* line 1, /www/dbc/dbc-shuffle/app/assets/stylesheets/welcome.css.scss */
+.bigboy li {
+  font-size: 1.2em;
+  padding-bottom: 10px;
+}
+
+/* line 3, /www/dbc/dbc-shuffle/app/assets/stylesheets/welcome.css.scss */
+#welcome h1 {
+  text-align: center;
+  margin: 30px 0;
+}
+
+/* line 8, /www/dbc/dbc-shuffle/app/assets/stylesheets/welcome.css.scss */
+.table-of-cohorts {
+  line-height: 180%;
+}
+
+/* line 12, /www/dbc/dbc-shuffle/app/assets/stylesheets/welcome.css.scss */
+#welcome .left {
+  float: left;
+  position: relative;
+  left: 10%;
+}
+
+/* line 18, /www/dbc/dbc-shuffle/app/assets/stylesheets/welcome.css.scss */
+#welcome .right {
+  float: right;
+  position: relative;
+  right: 10%;
+}
+
+/* line 24, /www/dbc/dbc-shuffle/app/assets/stylesheets/welcome.css.scss */
+#welcome h3 {
+  margin-top: 6px;
+}
+
+/* line 28, /www/dbc/dbc-shuffle/app/assets/stylesheets/welcome.css.scss */
+#welcome a {
+  color: black;
+}
+/* Loads new cohort form when click button from teacher profile*/
+
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
+
