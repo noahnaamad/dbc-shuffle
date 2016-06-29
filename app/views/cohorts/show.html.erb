@@ -11,7 +11,7 @@
 
 
 
-    <%= form_for @cohort do |f| %>
+    <%= form_for (@cohort, as: :size) do |f| %>
       <div class="group_size">
         <%= f.label :group_size_id %><br />
         <select name="Group Size">
