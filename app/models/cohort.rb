@@ -6,7 +6,7 @@ class Cohort < ActiveRecord::Base
 
   def pair_students ##not class method because running on one instance of cohort
 	arr = self.students.to_a
-	pairing_score = 0
+	pairing_score = 1
 	pairs = []
 	remainder = []
 	while !arr.empty?
@@ -15,22 +15,30 @@ class Cohort < ActiveRecord::Base
 		else
 			arr.each_with_index do |student, index|
 				for i in 1..(arr.length - index)
-					compare = arr[index + i]
-					current_pair = Pair.find_by(stud1_id: student.id, stud2_id: compare.id)
-					current_pair2 = Pair.find_by(stud1_id: compare.id, stud2_id: student.id)
-					truthy = current_pair2 || current_pair
-					if !truthy
-						pairs_arr = []
-						pairs_arr << arr.slice!(index + i)
+					if student.unpaired_with_students.any?
+						pairs_array = []
+						pair = student.unpaired_with_students.first
+						pair_index = arr.index(pair)
+						pairs_arr << arr.slice!(pair_index)
 						pairs_arr << arr.slice!(index)
 						pairs << pairs_arr
-						break
+						next
+					# compare = arr[index + i]
+					# current_pair = Pair.find_by(stud1_id: student.id, stud2_id: compare.id)
+					# current_pair2 = Pair.find_by(stud1_id: compare.id, stud2_id: student.id)
+					# truthy = current_pair2 || current_pair
+					# if !truthy
+					# 	pairs_arr = []
+					# 	pairs_arr << arr.slice!(index + i)
+					# 	pairs_arr << arr.slice!(index)
+					# 	pairs << pairs_arr
+					# 	next
 					elsif truthy.score <= pairing_score
 						pairs_arr = []
 						pairs_arr << arr.slice!(index + i)
 						pairs_arr << arr.slice!(index)
 						pairs << pairs_arr
-						break
+						next
 					end
 				end
 			end
@@ -63,15 +71,15 @@ class Cohort < ActiveRecord::Base
  	group_sizes
  end
 
- def generate_one_grouping(size, paired_students)
+ def generate_one_grouping(size)
  	group_sizes_array = determine_group_sizes(size)
  	groups = []
- 	pairs = paired_students[0]
+ 	pairs = pair_students[0]
  	pairs.shuffle!
- 	remainders = paired_students[1]
+ 	remainders = pair_students[1]
  	group_sizes_array.each do |size|
  		group = []
- 		if size % 2 == 0
+ 		if size.even?
  			while group.length < size/2
  				group << pairs.slice!(0)
  			end
@@ -88,39 +96,37 @@ class Cohort < ActiveRecord::Base
  			groups << group
  		end 
  	end
- 	groups.map do |group|
+ 	groups.each do |group|
  		group.flatten!
  	end
+
+ 	#groups.each(&:flatten!)
+
  	groups
  end
 
- def generate_many_groupings(size, paired_students)
+ def generate_many_groupings(size)
  	cohort_groupings = []
  	100.times do 
- 		cohort_groupings << generate_one_grouping(size, paired_students)
+ 		cohort_groupings << generate_one_grouping(size, pair_students)
  	end
  	cohort_groupings
  end
 
- def sorted_groups(size, paired_students)
- 	cohort_groupings = generate_many_groupings(size, paired_students)
- 	cohort_id = self.id
+ def sorted_groups(size)
+ 	cohort_groupings = generate_many_groupings(size, pair_students)
+ 	# cohort_id = self.id
  	cohort_groupings.map do |cohort|
+ 		# figure out total cohort score
  		cohort_score = 0
- 		group_id = 1
  		cohort.each do |group|
- 			group.each do |student|
- 				student.group = group_id
- 				#well fuck.
- 			end
- 			cohort_score += this_group.score
+ 			cohort_score += score(group)
  		end
+ 		##save each cohort grouping in a hash with its score
+ 		{cohort => cohort_score}
  	end
- 	##give each group in that cohort a group id, assign its students to it, figure out total cohort score
- 	##save each cohort grouping in a hash with its score, sort hash
+ 	cohort_groupings.sort!{|cohort, score| score}
  end
-
-
 
 end
 

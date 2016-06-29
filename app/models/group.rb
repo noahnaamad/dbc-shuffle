@@ -2,9 +2,7 @@ class Group < ActiveRecord::Base
   belongs_to :cohort #correct
   has_many :students
 
-  def score
-  	###iterate through each pair, find score, add
-  	stud_array = self.students.to_a
+  def score(stud_array)
   	score = 0
   	stud_array.each_with_index do |student, index|
   		for i in 1..(arr.length - index)
