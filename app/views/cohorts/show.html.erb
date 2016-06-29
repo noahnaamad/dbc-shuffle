@@ -1,13 +1,13 @@
 <div class="container">
   <h1>
-    Cohort Show Page Yo
+    Cohort Management
   </h1>
 
   <p>Hello Student! Welcome to the <%= @cohort.location.name %> <%=@cohort.name %> Cohort! Here are the groups for Today:</p>
 
   <div class="left">
-    <%= render partial: "cohort" %>
-    <%= render partial: 'add_student' %>
+    <%= render partial: "cohorts/cohort" %>
+    <!-- render partial: 'cohorts/add_student' -->
   </div>
 
   <div class="right">

@@ -2,23 +2,13 @@
 
 <h1>Homepage: Cohorts Index</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<h4>Cohort Name</h4>
 
-  <tbody>
-    <% @cohorts.each do |cohort| %>
-        <td><%= link_to "#{cohort.name} - #{cohort.location.try(:name)}", cohort_path(cohort) %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<ul class="list-group">
+<% @cohorts.each do |cohort| %>
+  <li class="list-group-item"><%= link_to "#{cohort.name} - #{cohort.location.try(:name)}", cohort_path(cohort) %></li>
+<% end %>
+</ul>
 
-<br>
 
 </div>
