@@ -11,7 +11,7 @@
 
 
 
-    <%= form_tag @size,(controller: "cohort", action: "update") do |f| %>
+    <%= form_for @size (controller: "cohort", action: "update") do |f| %>
 
       <div class="group_size">
         <%= f.label :group_size_id %><br />
