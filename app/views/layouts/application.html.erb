@@ -7,9 +7,9 @@
   <%= stylesheet_link_tag     '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'%>
   <%= stylesheet_link_tag     'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag  '//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js' %>
+
   <%= csrf_meta_tags %>
 </head>
-<body class="teset">
 
 <nav class="nav">
     <% if teacher_signed_in? %>
@@ -31,5 +31,4 @@
 
 <%= yield %>
 
-</body>
 </html>
