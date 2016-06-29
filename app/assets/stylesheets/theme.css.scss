@@ -93,7 +93,10 @@ $brand-language: #B01302;
   justify-content: space-around;
   align-items: baseline;
 }
-
+.cohort-show > * {
+  padding: 10px;
+  flex: 1 100%;
+}
 .title{
     margin-top: 1em;
     border: 2px solid black;
@@ -101,11 +104,16 @@ $brand-language: #B01302;
     text-align: center;
 }
 
-.item{
+.item {
     margin-top: 1em;
     text-align: center;
     padding: .5em;
 }
+
+li {
+  list-style-type: none;
+}
+
 
 .button{
 
