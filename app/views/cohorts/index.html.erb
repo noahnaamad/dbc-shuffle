@@ -3,16 +3,13 @@
   <div class="left">
 
     <h3>Recent Groups Generated:</h3>
-    <table class="table-of-cohorts">
-      <tbody>
-        <% @cohorts.each do |cohort| %>
-            <td><%= link_to "#{cohort.name} - #{cohort.location.try(:name)}", cohort_path(cohort) %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <ul class="list-group">
+      <% @cohorts.each do |cohort| %>
+        <li class="list-group-item"><%= link_to "#{cohort.name} - #{cohort.location.try(:name)}", cohort_path(cohort) %></li>
+      <% end %>
+    </ul>
   </div>
+
 
   <div class="right">
     <h4>Teacher Login</h4>
