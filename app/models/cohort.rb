@@ -4,48 +4,65 @@ class Cohort < ActiveRecord::Base
   belongs_to :location
 
 
-  def pair_students ##not class method because running on one instance of cohort
-	arr = self.students.to_a
-	pairing_score = 1
-	pairs = []
-	remainder = []
-	while !arr.empty?
-		if arr.length == 1
-			remainder << arr[0]
-		else
-			arr.each_with_index do |student, index|
-				for i in 1..(arr.length - index)
-					if student.unpaired_with_students.any?
-						pairs_array = []
-						pair = student.unpaired_with_students.first
-						pair_index = arr.index(pair)
-						pairs_arr << arr.slice!(pair_index)
-						pairs_arr << arr.slice!(index)
-						pairs << pairs_arr
-						next
-					# compare = arr[index + i]
-					# current_pair = Pair.find_by(stud1_id: student.id, stud2_id: compare.id)
-					# current_pair2 = Pair.find_by(stud1_id: compare.id, stud2_id: student.id)
-					# truthy = current_pair2 || current_pair
-					# if !truthy
-					# 	pairs_arr = []
-					# 	pairs_arr << arr.slice!(index + i)
-					# 	pairs_arr << arr.slice!(index)
-					# 	pairs << pairs_arr
-					# 	next
-					elsif truthy.score <= pairing_score
-						pairs_arr = []
-						pairs_arr << arr.slice!(index + i)
-						pairs_arr << arr.slice!(index)
-						pairs << pairs_arr
-						next
-					end
-				end
-			end
-		end
-		pairing_score += 1
-	end
-	return [pairs, remainder]
+ #  def pair_students ##not class method because running on one instance of cohort
+	# arr = self.students.to_a
+	# pairing_score = 1
+	# pairs = []
+	# remainder = []
+	# while !arr.empty?
+	# 	if arr.length == 1
+	# 		remainder << arr[0]
+	# 	else
+	# 		arr.each_with_index do |student, index|
+	# 			for i in 1..(arr.length - index - 1)
+	# 				# if student.unpaired_with_students.any?
+	# 					# pairs_arr = []
+	# 					# student_to_pair_with = student.unpaired_with_students.first
+	# 					# pair_index = arr.index(student_to_pair_with)
+	# 					# pairs_arr << arr.slice!(pair_index)
+	# 					# pairs_arr << arr.slice!(index)
+	# 					# pairs << pairs_arr
+	# 					# next
+	# 				compare = arr[index + i]
+	# 				current_pair = Pair.find_by(stud1_id: student.id, stud2_id: compare.id)
+	# 				current_pair2 = Pair.find_by(stud1_id: compare.id, stud2_id: student.id)
+	# 				truthy = current_pair2 || current_pair
+	# 				if !truthy
+	# 					pairs_arr = []
+	# 					pairs_arr << arr.slice!(index + i)
+	# 					pairs_arr << arr.slice!(index)
+	# 					pairs << pairs_arr
+	# 					next
+	# 				elsif truthy.score <= pairing_score
+	# 					pairs_arr = []
+	# 					pairs_arr << arr.slice!(index + i)
+	# 					pairs_arr << arr.slice!(index)
+	# 					pairs << pairs_arr
+	# 					next
+	# 				end
+	# 			end
+	# 		end
+	# 	end
+	# 	pairing_score += 1
+	# end
+	# return [pairs, remainder]
+ # end
+
+ def pair_students
+ 	arr = self.students.to_a
+ 	pairs = []
+ 	remainder = []
+ 	while !arr.empty?
+ 		if arr.length == 1
+ 			remainder << arr[0]
+ 		else
+ 			pair = []
+ 			pair << arr.slice!
+ 			pair << arr.slice!
+ 			pairs << pair
+ 		end
+ 	end
+ 	return [pairs, remainder]
  end
 
  def determine_group_sizes(size) #given ideal group size
@@ -114,7 +131,7 @@ class Cohort < ActiveRecord::Base
  end
 
  def sorted_groups(size)
- 	cohort_groupings = generate_many_groupings(size, pair_students)
+ 	cohort_groupings = generate_many_groupings(size)
  	# cohort_id = self.id
  	cohort_groupings.map do |cohort|
  		# figure out total cohort score
