@@ -4,8 +4,6 @@ class TeachersController < ApplicationController
     @cohorts_in_location = current_teacher.location.cohorts
   end
 
-<<<<<<< HEAD
-=======
   def create
     puts "============="
     puts teacher_params
@@ -19,6 +17,5 @@ class TeachersController < ApplicationController
     end
 
   end
->>>>>>> b0d8f05751eb2b04815fd6ae3953e11e9758c70c
 
 end
