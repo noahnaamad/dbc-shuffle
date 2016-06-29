@@ -8,7 +8,6 @@ class CohortsController < ApplicationController
   end
 
   def new
-    # for the dropdown of teachers.. mapping to format select form helper wants, which is [name, value]
     @teachers_drop = Teacher.all.map {|teacher| [teacher.name, teacher.id]}
   end
 
@@ -38,6 +37,6 @@ class CohortsController < ApplicationController
 
   private
     def cohort_params
-      params.require(:cohort).permit(:name, :location, :teacher_id)
+      params.require(:cohort).permit(:name, :location_id)
     end
 end
