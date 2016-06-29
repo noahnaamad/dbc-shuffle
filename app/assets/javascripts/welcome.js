@@ -3,8 +3,5 @@
  */
 
 $(document).ready(function(){
-    $("#dbc").click(function(){
-        // $(this).hide();
-        console.log("this is a test");
-    });
+
 });
