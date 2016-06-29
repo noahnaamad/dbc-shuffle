@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
-  devise_for :teachers, :controllers => { :registrations => "teachers/registrations"}
+  devise_for :teachers, :controllers => { :registrations => "teachers/registrations" }
   # resources :widgets
 
   resources 'cohorts'
 
   namespace :admin do
     resources :teachers, only: [:index, :create, :destroy]
+  end
+
+  namespace :teacher do
+    resources
   end
 
   #     # Directs /admin/products/* to Admin::ProductsController
