@@ -48,7 +48,7 @@ class Cohort < ActiveRecord::Base
 	# return [pairs, remainder]
  # end
 
- def pair_students()
+ def pair_students
  	arr = self.students.to_a
  	arr.shuffle!
  	pairs = []
@@ -58,8 +58,8 @@ class Cohort < ActiveRecord::Base
  			remainder << arr[0]
  		else
  			pair = []
- 			pair << arr.slice!
- 			pair << arr.slice!
+ 			pair << arr.slice!(0)
+ 			pair << arr.slice!(0)
  			pairs << pair
  		end
  	end
