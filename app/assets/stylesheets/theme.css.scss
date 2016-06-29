@@ -41,3 +41,24 @@ $brand-language: #B01302;
 
 }
 
+
+.admin-home {
+  h4 {
+    margin: 5px 0;
+    padding: 5px ;
+    background-color: #efefef;
+  }
+  .admin-list, .admin-new {
+    //width: 45%;
+    //height: 100%;
+    //float: left;
+    margin: 10px 0;
+    padding: 10px 0;
+  }
+  .admin-new {
+    //border-left: 2px solid #ccc;
+    //padding-left: 40px;
+
+  }
+
+}
