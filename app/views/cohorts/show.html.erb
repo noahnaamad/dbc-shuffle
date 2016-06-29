@@ -9,13 +9,41 @@
 
   <!-- LINK TO NOAH  -->
 
-  <%= button_to 'generate' %>
 
-  <%= button_to 'customize size' %>
 
-  <%= button_to 'save' %>
+    <%= form_for edit_cohort_path(@cohort) do |f| %>
+      <div class="group_size">
+        <%= f.label :group_size_id %><br />
+        <select name="Group Size">
+                      <option value="1" selected>1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                      <option value="13">13</option>
+                      <option value="14">14</option>
+                      <option value="15">15</option>
+          </select>
+        </div>
+      <div class="actions">
+        <%= f.submit "Adjust Group Size" %>
+      </div>
+    <% end %>
 
-  <%= button_to 'retire cohort' %>
+    <%= button_to "Generate Groups", edit_cohort_path(@cohort) %>
+
+
+  #this is the button that would allow a user to input a number in the form to create a specific size of groups they would like to sort with
+
+  <%= button_to 'save', edit_cohort_path(@cohort) %>
+
+  <%= button_to 'retire cohort', edit_cohort_path(@cohort) %>
 
 </div>
-

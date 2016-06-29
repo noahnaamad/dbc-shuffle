@@ -32,7 +32,22 @@ class CohortsController < ApplicationController
     #upon saving adds the teacher associatied with it it would need to have an array
 
   def update
+    @cohort = Cohort.find(params[:id])
+    @new_cohort = @cohort.generate_many_groupings(4)
+    #group shuffling method goes here
+    @cohort = @new_cohort.sorted_groups(params[:size])
   end
+
+  # def update
+  #   @article = Article.find(params[:id])
+
+  #   if @article.update(article_params)
+  #     redirect_to @article
+  #   else
+  #     render 'edit'
+  #   end
+  # end
+
 
   def destroy
   end
