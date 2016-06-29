@@ -34,20 +34,10 @@ class CohortsController < ApplicationController
   def update
     @cohort = Cohort.find(params[:id])
     @new_cohort = @cohort.generate_many_groupings(4)
-    #group shuffling method goes here
+    #group shuffling method goes here not sure if this is correct syntax
+    #also need to make sure that the route i have created in the edit_cohort_path is correct
     @cohort = @new_cohort.sorted_groups(params[:size])
   end
-
-  # def update
-  #   @article = Article.find(params[:id])
-
-  #   if @article.update(article_params)
-  #     redirect_to @article
-  #   else
-  #     render 'edit'
-  #   end
-  # end
-
 
   def destroy
   end
@@ -57,4 +47,5 @@ class CohortsController < ApplicationController
       params.require(:cohort).permit(:name, :location_id)
     end
 end
+
 
