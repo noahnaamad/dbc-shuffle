@@ -17,6 +17,10 @@ class CohortsController < ApplicationController
     @cohort = Cohort.find(params[:id])
   end
 
+  def post
+
+  end
+
   def create
     @cohort = Cohort.new(cohort_params)
 
