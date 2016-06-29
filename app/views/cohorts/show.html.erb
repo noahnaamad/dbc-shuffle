@@ -5,17 +5,17 @@
 
   <p>Hello Student! Welcome to the <%= @cohort.location.name %> <%=@cohort.name %> Cohort! Here are the groups for Today:</p>
 
-  <%= render partial: "cohort" %>
+  <%= render partial: "cohorts/cohort" %>
 
   <!-- LINK TO NOAH  -->
 
+    <%= form_for :cohort, url: generate_cohort_groups_path(@cohort), method: "get" do |f| %>
+    <!-- form_for @size (controller: "cohort", action: "update") do |f| -->
 
 
-    <%= form_for @size (controller: "cohort", action: "update") do |f| %>
-
-      <div class="group_size">
-        <%= f.label :group_size_id %><br />
-        <select name="Group Size">
+     <div class="group_size">
+        <%= f.label :size %><br />
+        <select name="size">
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -34,14 +34,13 @@
           </select>
         </div>
       <div class="actions">
-        <%= f.submit "Adjust Group Size" %>
+        <%= f.submit "Generate Groups" %>
       </div>
     <% end %>
 
-    <%= button_to "Generate Groups", edit_cohort_path(@cohort) %>
 
 
-  #this is the button that would allow a user to input a number in the form to create a specific size of groups they would like to sort with
+  <!--this is the button that would allow a user to input a number in the form to create a specific size of groups they would like to sort with -->
 
   <%= button_to 'save', edit_cohort_path(@cohort) %>
 

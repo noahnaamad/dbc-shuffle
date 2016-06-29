@@ -1,10 +1,19 @@
-<h2><%=@cohort.name %><h2>
-<h4><%= @cohort.location.name %></h4>
-<ul>
-    <% @cohort.students.each do |student| %>
-          <li>
-              <%= student.name %>
-              <%= student.group_id %>
-          </li>
-    <% end  %>
-</ul>
+<% if @groupings.present? %>
+ <% @groupings.each do |group| %>
+  <div><% group.each do |student|%>
+    <%= student.try(:name) %><br>
+    <% end %>
+  </div><br>
+ <% end %>
+<% else %>
+  <h2><%=@cohort.name %><h2>
+  <h4><%= @cohort.location.name %></h4>
+  <ul>
+      <% @cohort.students.each do |student| %>
+            <li>
+                <%= student.name %>
+                <%= student.group_id %>
+            </li>
+      <% end  %>
+  </ul>
+<% end %>

@@ -15,6 +15,10 @@ class CohortsController < ApplicationController
     @cohort = Cohort.find(params[:id])
   end
 
+  def post
+
+  end
+
   def create
     puts "============="
     puts cohort_params

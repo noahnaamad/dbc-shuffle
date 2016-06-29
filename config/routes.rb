@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'groups/generate'
+
   devise_for :teachers, :controllers => { :registrations => "teachers/registrations"}
   # resources :widgets
 
@@ -7,7 +9,13 @@ Rails.application.routes.draw do
   end
 
   resources :teachers
-  resources :cohorts
+  resources :cohorts do
+    resources :groups do
+      collection do
+        get 'generate'
+      end
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
