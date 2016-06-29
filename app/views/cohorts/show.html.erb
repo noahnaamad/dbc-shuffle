@@ -11,14 +11,14 @@
 
 
 
-    <%= form_for @cohort do |f| %>
+    <%= form_for (@cohort, as: :client) do |f| %>
       <div class="group_size">
         <%= f.label :group_size_id %><br />
         <select name="Group Size">
-                      <option value="1" selected>1</option>
+                      <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
-                      <option value="4">4</option>
+                      <option value="4" selected>4</option>
                       <option value="5">5</option>
                       <option value="6">6</option>
                       <option value="7">7</option>

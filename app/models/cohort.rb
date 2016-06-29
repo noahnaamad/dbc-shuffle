@@ -48,8 +48,9 @@ class Cohort < ActiveRecord::Base
 	# return [pairs, remainder]
  # end
 
- def pair_students
+ def pair_students()
  	arr = self.students.to_a
+ 	arr.shuffle!
  	pairs = []
  	remainder = []
  	while !arr.empty?
@@ -65,7 +66,7 @@ class Cohort < ActiveRecord::Base
  	return [pairs, remainder]
  end
 
- def determine_group_sizes(size) #given ideal group size
+ def determine_group_sizes(size) #given ideal group size YAY THIS WORKS
  	group_sizes = []
  	students_array = self.students.to_a
  	num_students = students_array.length
@@ -88,39 +89,56 @@ class Cohort < ActiveRecord::Base
  	group_sizes
  end
 
- def generate_one_grouping(size)
+ # def generate_one_grouping(size)
+ # 	group_sizes_array = determine_group_sizes(size)
+ # 	groups = []
+ # 	pairs = pair_students[0]
+ # 	pairs.shuffle!
+ # 	remainders = pair_students[1]
+ # 	group_sizes_array.each do |size|
+ # 		group = []
+ # 		if size.even?
+ # 			while group.length < size/2
+ # 				group << pairs.slice!(0)
+ # 			end
+ # 			groups << group
+ # 		else ##group size odd, have to make sure there's a remainder
+ # 			if remainders.empty?
+ # 				remainders << pairs.pop
+ # 				remainders.flatten!
+ # 			end
+ # 			group << remainders.slice!(0)
+ # 			while group.length < ((size+1)/2)
+ # 				group << pairs.slice!(0)
+ # 			end
+ # 			groups << group
+ # 		end
+ # 	end
+ # 	groups.each do |group|
+ # 		group.flatten!
+ # 	end
+
+ # 	#groups.each(&:flatten!)
+
+ # 	groups
+ # end
+
+
+def generate_one_grouping(size)
+	students_array = self.students.to_a
+	students_array.shuffle!
  	group_sizes_array = determine_group_sizes(size)
  	groups = []
- 	pairs = pair_students[0]
- 	pairs.shuffle!
- 	remainders = pair_students[1]
  	group_sizes_array.each do |size|
  		group = []
- 		if size.even?
- 			while group.length < size/2
- 				group << pairs.slice!(0)
- 			end
- 			groups << group
- 		else ##group size odd, have to make sure there's a remainder
- 			if remainders.empty?
- 				remainders << pairs.pop
- 				remainders.flatten!
- 			end
- 			group << remainders.slice!(0)
- 			while group.length < ((size+1)/2)
- 				group << pairs.slice!(0)
- 			end
- 			groups << group
- 		end
+		while group.length < size
+			group << students_array.slice!(0)
+		end
+			groups << group
  	end
- 	groups.each do |group|
- 		group.flatten!
- 	end
-
- 	#groups.each(&:flatten!)
-
  	groups
  end
+
 
  def generate_many_groupings(size)
  	cohort_groupings = []
