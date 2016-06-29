@@ -10,5 +10,17 @@
 <% end %>
 </ul>
 
+<h1 class="welcome-center">Welcome.</h1>
+
+<h3>Recent Groups Generated:</h3>
+<table class="table-of-cohorts">
+  <tbody>
+    <% @cohorts.each do |cohort| %>
+        <td><%= link_to "#{cohort.name} - #{cohort.location.try(:name)}", cohort_path(cohort) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 </div>
