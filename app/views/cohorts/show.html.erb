@@ -3,12 +3,19 @@
     Cohort Show Page Yo
   </h1>
 
-  <p>
-      Hello Student! Welcome to the <%= @cohort.location.name %> <%=@cohort.name %> Cohort! Here are the groups for Today:
-  </p>
+  <p>Hello Student! Welcome to the <%= @cohort.location.name %> <%=@cohort.name %> Cohort! Here are the groups for Today:</p>
 
   <%= render partial: "cohort" %>
 
+  <!-- LINK TO NOAH  -->
+
+  <%= button_to 'generate' %>
+
+  <%= button_to 'customize size' %>
+
+  <%= button_to 'save' %>
+
+  <%= button_to 'retire cohort' %>
 
 </div>
 
