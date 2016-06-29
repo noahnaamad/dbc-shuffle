@@ -1,9 +1,10 @@
 <% if @groupings.present? %>
  <% @groupings.each do |group| %>
-  <div><% group.each do |student|%>
-    <%= student.try(:name) %><br>
+   <div class="panel panel-block">
+    <% group.each do |student|%>
+        <div class="panel-title"><%= student.try(:name) %></div>
     <% end %>
-  </div><br>
+  </div>
  <% end %>
 <% else %>
   <h2><%=@cohort.name %><h2>

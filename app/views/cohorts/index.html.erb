@@ -1,14 +1,19 @@
 <div class="container">
 
-<h1>Happy Monday!</h1>
+<h1>Homepage: Cohorts Index</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Your Groups:</th>
-    </tr>
-  </thead>
+<h4>Cohort Name</h4>
 
+<ul class="list-group">
+<% @cohorts.each do |cohort| %>
+  <li class="list-group-item"><%= link_to "#{cohort.name} - #{cohort.location.try(:name)}", cohort_path(cohort) %></li>
+<% end %>
+</ul>
+
+<h1 class="welcome-center">Welcome.</h1>
+
+<h3>Recent Groups Generated:</h3>
+<table class="table-of-cohorts">
   <tbody>
     <% @cohorts.each do |cohort| %>
         <td><%= link_to "#{cohort.name} - #{cohort.location.try(:name)}", cohort_path(cohort) %>
@@ -17,7 +22,5 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
 
 </div>

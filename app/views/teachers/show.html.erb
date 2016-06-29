@@ -2,7 +2,7 @@
   <h1>Teacher <%= current_teacher.name %>'s Profile Page</h1>
 
   <div class="left">
-    <h3>Left - <%= current_teacher.location.name %> Cohorts</h3>
+    <h3><%= current_teacher.location.name %> Cohorts</h3>
       <ul>
         <% @cohorts_in_location.each do |cohort| %>
           <li><%= link_to "#{cohort.name}", cohort_path(cohort) %></li>
