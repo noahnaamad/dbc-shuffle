@@ -9,7 +9,7 @@ before_action :configure_sign_up_params, only: [:create]
 
   # POST /resource
   # def create
-  #   super
+  #
   # end
 
   # GET /resource/edit
@@ -40,7 +40,7 @@ before_action :configure_sign_up_params, only: [:create]
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :admin])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :admin, :location_id])
   end
 
   # If you have extra params to permit, append them to the sanitizer.

@@ -111,7 +111,7 @@ class Cohort < ActiveRecord::Base
  				group << pairs.slice!(0)
  			end
  			groups << group
- 		end 
+ 		end
  	end
  	groups.each do |group|
  		group.flatten!
@@ -124,7 +124,7 @@ class Cohort < ActiveRecord::Base
 
  def generate_many_groupings(size)
  	cohort_groupings = []
- 	100.times do 
+ 	100.times do
  		cohort_groupings << generate_one_grouping(size, pair_students)
  	end
  	cohort_groupings

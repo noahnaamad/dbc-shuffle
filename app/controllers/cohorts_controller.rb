@@ -32,6 +32,11 @@ class CohortsController < ApplicationController
     #upon saving adds the teacher associatied with it it would need to have an array
 
   def update
+    @cohort = Cohort.find(params[:id])
+    @new_cohort = @cohort.generate_many_groupings(4)
+    #group shuffling method goes here not sure if this is correct syntax
+    #also need to make sure that the route i have created in the edit_cohort_path is correct
+    @cohort = @new_cohort.sorted_groups(params[:size])
   end
 
   def destroy
@@ -42,4 +47,5 @@ class CohortsController < ApplicationController
       params.require(:cohort).permit(:name, :location_id)
     end
 end
+
 
