@@ -5,12 +5,12 @@
 
   <p>Hello Student! Welcome to the <%= @cohort.location.name %> <%=@cohort.name %> Cohort! Here are the groups for Today:</p>
 
-  <%= render partial: "cohort" %>
+  <div class="left">
+    <%= render partial: "cohort" %>
+    <%= render partial: 'add_student' %>
+  </div>
 
-  <!-- LINK TO NOAH  -->
-
-
-
+  <div class="right">
     <%= form_for @cohort do |f| %>
       <div class="group_size">
         <%= f.label :group_size_id %><br />
@@ -40,10 +40,11 @@
     <%= button_to "Generate Groups", edit_cohort_path(@cohort) %>
 
 
-  #this is the button that would allow a user to input a number in the form to create a specific size of groups they would like to sort with
+    #this is the button that would allow a user to input a number in the form to create a specific size of groups they would like to sort with
 
-  <%= button_to 'save', edit_cohort_path(@cohort) %>
+    <%= button_to 'save', edit_cohort_path(@cohort) %>
 
-  <%= button_to 'retire cohort', edit_cohort_path(@cohort) %>
+    <%= button_to 'retire cohort', edit_cohort_path(@cohort) %>
+  </div>
 
 </div>

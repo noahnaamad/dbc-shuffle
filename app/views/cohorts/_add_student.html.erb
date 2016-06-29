@@ -1,0 +1,22 @@
+<h1>Add student</h1>
+
+<!-- <button id="show_new_student_button">Add Student</button> -->
+
+  <!-- THIS DOES NOT WORK******* -->
+<div id="show_new_student_form">
+
+  <%= form_for @student, url: students_path do |f| %>
+    <p>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>
+
+</div>
+
+  <!-- form to add student -->
+  <!-- in controller, save association to DB (check in console Cohort.last.students) -->
+  <!-- new student autoshow after hit add student -->

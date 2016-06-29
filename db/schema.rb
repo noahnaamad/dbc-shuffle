@@ -45,9 +45,9 @@ ActiveRecord::Schema.define(version: 20160628232152) do
 
   create_table "students", force: :cascade do |t|
     t.string   "name"
-    t.integer  "group_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "group_id",   default: 1
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "teachers", force: :cascade do |t|
