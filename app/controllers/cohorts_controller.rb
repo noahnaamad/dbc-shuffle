@@ -5,10 +5,12 @@ class CohortsController < ApplicationController
 
   def show
     @cohort = Cohort.find(params[:id])
+    @student = Student.new
   end
 
   def new
-    @teachers_drop = Teacher.all.map {|teacher| [teacher.name, teacher.id]}
+    @cohort = Cohort.new
+    # @teachers_drop = Teacher.all.map {|teacher| [teacher.name, teacher.id]}
   end
 
   def edit
@@ -20,12 +22,10 @@ class CohortsController < ApplicationController
   end
 
   def create
-    puts "============="
-    puts cohort_params
     @cohort = Cohort.new(cohort_params)
 
     if @cohort.save
-      @cohort.teacher = current_teacher
+      # removed saving teacher to cohort.. cohort is now associated with location
       flash[:notice] = 'Cohort added!'
       redirect_to cohorts_path
     else
