@@ -3,7 +3,7 @@
 
 <div class="title">
   <h1>
-<<<<<<< HEAD
+
     Welcome to the <%= @cohort.location.name %> <%=@cohort.name %> Cohort!
   </h1>
   <% if teacher_signed_in? %>
@@ -13,19 +13,6 @@
   <%end  %>
 </div>
 
-  <div class="item">
-      <%= render partial: 'add_student' %>
-
-    Cohort Management
-  </h1>
-  <p>Hello Student! Welcome to the <%= @cohort.location.name %> <%=@cohort.name %> Cohort! Here are the groups for Today:</p>
-
-  <div class="left">
-    <%= render partial: "cohorts/cohort" %>
-    <!-- Partial not complete so commenting out -->
-    <!-- <%#= render partial: 'add_student' %> -->
-
-  </div>
 
   <div class="item">
     <%= render partial: "cohorts/cohort" %>
