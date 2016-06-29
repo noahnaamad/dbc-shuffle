@@ -13,7 +13,7 @@
   <tbody>
     <% @cohorts.each do |cohort| %>
         <td><%= link_to "#{cohort.name} - #{cohort.location.try(:name)}", cohort_path(cohort) %>
-</td>
+        </td>
       </tr>
     <% end %>
   </tbody>
