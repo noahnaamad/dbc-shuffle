@@ -9,14 +9,16 @@
   </p>
 
   <p>
-    <%= f.label :teacher_id, 'I am.. ' %><br>
-    <%= f.select(:teacher_id, options_for_select(@teachers_drop)) %>
+    <%= f.label :location_id %><br>
+
+    <%= f.select(:location_id, options_for_select(locations_for_select)) %>
+
   </p>
 
-  <p>
-    <%= f.label :location %><br>
-    <%= f.select(:location, options_for_select([['San Francisco', 'San Francisco'], ['San Diego', 'San Diego'], ['Chicago', 'Chicago'], ['Austin', 'Austin']])) %>
-  </p>
+
+<!-- MAEVE - ADD SECTION HERE IN PARTIAL TO ADD STUDENTS, and make sure controller saves students to DB associated with everything they need to be -->
+
+<!-- ALSO, NEEDS TO ASSOCIATE THE COHORT WITH THE TEACHER WHO CREATED IT. I created a @teachers_drop class variable in the #new route, or just do it using the current_teacher -->
 
   <p>
     <%= f.submit %>
