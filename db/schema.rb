@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20160628232152) do
 
   create_table "teachers", force: :cascade do |t|
     t.string   "name",                                null: false
-    t.integer  "location_id",                         null: false
+    t.integer  "location_id",            default: 1
     t.integer  "admin",                  default: 0
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false

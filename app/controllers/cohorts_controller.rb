@@ -8,7 +8,6 @@ class CohortsController < ApplicationController
   end
 
   def new
-    # for the dropdown of teachers.. mapping to format select form helper wants, which is [name, value]
     @teachers_drop = Teacher.all.map {|teacher| [teacher.name, teacher.id]}
   end
 
@@ -22,13 +21,15 @@ class CohortsController < ApplicationController
     @cohort = Cohort.new(cohort_params)
 
     if @cohort.save
+      @cohort.teacher = current_teacher
       flash[:notice] = 'Cohort added!'
       redirect_to cohorts_path
-
     else
       render 'new'
     end
   end
+  #create method
+    #upon saving adds the teacher associatied with it it would need to have an array
 
   def update
   end
@@ -38,6 +39,7 @@ class CohortsController < ApplicationController
 
   private
     def cohort_params
-      params.require(:cohort).permit(:name, :location, :teacher_id)
+      params.require(:cohort).permit(:name, :location_id)
     end
 end
+
