@@ -1,16 +1,22 @@
-<div class="container">
+<div id="welcome" class="container">
+  <h1>Welcome.</h1>
+  <div class="left">
 
-<h1 class="welcome-center">Welcome.</h1>
+    <h3>Recent Groups Generated:</h3>
+    <table class="table-of-cohorts">
+      <tbody>
+        <% @cohorts.each do |cohort| %>
+            <td><%= link_to "#{cohort.name} - #{cohort.location.try(:name)}", cohort_path(cohort) %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
-<h3>Recent Groups Generated:</h3>
-<table class="table-of-cohorts">
-  <tbody>
-    <% @cohorts.each do |cohort| %>
-        <td><%= link_to "#{cohort.name} - #{cohort.location.try(:name)}", cohort_path(cohort) %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div class="right">
+    <h4>Teacher Login</h4>
+    <%= render partial: '/devise/sessions/new' %>
+  </div>
 
 </div>
