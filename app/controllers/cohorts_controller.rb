@@ -21,13 +21,15 @@ class CohortsController < ApplicationController
     @cohort = Cohort.new(cohort_params)
 
     if @cohort.save
+      @cohort.teacher = current_teacher
       flash[:notice] = 'Cohort added!'
       redirect_to cohorts_path
-
     else
       render 'new'
     end
   end
+  #create method
+    #upon saving adds the teacher associatied with it it would need to have an array
 
   def update
   end
@@ -40,3 +42,4 @@ class CohortsController < ApplicationController
       params.require(:cohort).permit(:name, :location_id)
     end
 end
+
