@@ -14,7 +14,6 @@
 <nav class="nav">
   <ul class= "nav-list"></ul>
     <% if teacher_signed_in? %>
-      Logged in as <strong><%= current_teacher.email %></strong>.
       <li class="link"><%= link_to "Logout", destroy_teacher_session_path, method: :delete, :class => 'navbar-link'  %> </li>
       <li class="link"><%= link_to 'Profile & Update Cohorts', teacher_path(current_teacher), :class => 'navbar-link' %></li>
     <% if current_teacher == 1 %>
