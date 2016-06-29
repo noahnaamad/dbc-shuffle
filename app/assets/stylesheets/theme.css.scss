@@ -86,3 +86,27 @@ $brand-language: #B01302;
     padding: 14px 16px;
     text-decoration: none;
 }
+
+.cohort-show{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+.title{
+    margin-top: 1em;
+    border: 2px solid black;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.item{
+    margin-top: 1em;
+    text-align: center;
+    padding: .5em;
+}
+
+.button{
+
+}
