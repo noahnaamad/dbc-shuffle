@@ -2,16 +2,21 @@
   <h1>Teacher <%= current_teacher.name %>'s Profile Page</h1>
 
   <div class="left">
-
     <h3><%= current_teacher.location.name %> Cohorts</h3>
       <ul>
         <% @cohorts_in_location.each do |cohort| %>
           <li><%= link_to "#{cohort.name}", cohort_path(cohort) %></li>
         <% end %>
       </ul>
+  </div>
 
-      <!-- loop through current_teacher.location.cohorts -->
-
+  <div class="center">
+    <!-- render new cohort partial on click -->
+    <!-- create the partial first and make that work -->
+    <%= button_to 'Add New Cohort'   %>
+    <div id="add_cohort_form">
+        <%= render partial: '/cohorts/form' %>
+    </div>
 
   </div>
 
