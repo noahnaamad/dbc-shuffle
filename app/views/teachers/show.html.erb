@@ -1,9 +1,18 @@
 <div class="container">
+  <h1>Teacher <%= current_teacher.name %>'s Profile Page</h1>
 
-<h1>Teacher Profile Page</h1>
+  <div class="left">
 
-<p>Add and delete teachers.</p>
+    <h3><%= current_teacher.location.name %> Cohorts</h3>
+      <ul>
+        <% @cohorts_in_location.each do |cohort| %>
+          <li><%= link_to "#{cohort.name}", cohort_path(cohort) %></li>
+        <% end %>
+      </ul>
+
+      <!-- loop through current_teacher.location.cohorts -->
 
 
+  </div>
 
 </div>
