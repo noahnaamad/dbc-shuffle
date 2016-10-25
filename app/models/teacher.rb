@@ -1,3 +1,10 @@
 class Teacher < ActiveRecord::Base
-  has_many :cohorts
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+
+  belongs_to :location
+  has_many :cohorts, through: :location
+
 end

@@ -1,12 +1,28 @@
 Rails.application.routes.draw do
-  resources :widgets
+  get 'groups/generate'
+
+  devise_for :teachers, :controllers => { :registrations => "teachers/registrations"}
+  # resources :widgets
+
+  namespace :admin do
+    resources :teachers, only: [:index, :create, :destroy, :show]
+  end
+
+  resources :teachers
+  resources :cohorts do
+    resources :groups do
+      collection do
+        get 'generate'
+      end
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
 
-  root 'welcome#index'
+  root 'cohorts#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

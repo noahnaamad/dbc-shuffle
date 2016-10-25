@@ -1,0 +1,59 @@
+<div class="container admin-home">
+
+  <h1>Admin Home</h1>
+
+  <div class="admin-list">
+    <h4>Delete Teachers</h4>
+    <ul>
+    <% @teachers.each do |teacher| %>
+      <li>
+        <%= teacher.name %>
+        <!--= link_to "#{teacher.name}", teacher_path(teacher) -->
+      </li>
+    <% end %>
+
+    </ul>
+  </div>
+
+  <div class="admin-new">
+
+    <h4>Add New Teacher</h4>
+
+    <%= form_for :teacher, :url => '/admin/teachers' do |f| %>
+
+      <div class="field">
+        <%= f.label :name, 'Your Name' %><br/>
+        <%= f.text_field :name, autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email %>
+      </div>
+
+      <div class="field">
+        <%= f.label :location_id, 'Location' %><br />
+        <%= f.select(:location_id, options_for_select(locations_for_select)) %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Create New Teacher" %>
+      </div>
+    <% end %>
+
+  </div>
+
+</div>
