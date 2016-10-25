@@ -3,6 +3,10 @@ class Cohort < ActiveRecord::Base
   has_many :students, through: :groups
   belongs_to :location
 
+###ideas for improving algorithm:
+###rotate a matrix by a set amount each time??
+###there is a bug -- make sure to add both pair scores.
+###do not sort groupings, just find the minimum score --> reduce time complexity
 
  #  def pair_students ##not class method because running on one instance of cohort
 	# arr = self.students.to_a
