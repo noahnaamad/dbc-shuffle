@@ -15,15 +15,6 @@ class Cohort < ActiveRecord::Base
 		else
 			arr.each_with_index do |student, index|
 				for i in 1..(arr.length - index - 1)
-					# if student.unpaired_with_students.any?
-					# 	pairs_arr = []
-					# 	student_to_pair_with = student.unpaired_with_students.first
-					# 	pair_index = arr.index(student_to_pair_with)
-					# 	pairs_arr << arr.slice!(pair_index)
-					# 	pairs_arr << arr.slice!(index)
-					# 	pairs << pairs_arr
-					# 	next
-					# end
 					compare = arr[index + i]
 					current_pair = Pair.find_by(stud1_id: student.id, stud2_id: compare.id)
 					current_pair2 = Pair.find_by(stud1_id: compare.id, stud2_id: student.id)
@@ -49,24 +40,6 @@ class Cohort < ActiveRecord::Base
 	return [pairs, remainder]
  end
 
- def pair_students
- 	arr = self.students.to_a
- 	arr.shuffle!
- 	pairs = []
- 	remainder = []
- 	while !arr.empty?
- 		if arr.length == 1
- 			remainder << arr[0]
- 		else
- 			pair = []
- 			pair << arr.slice!(0)
- 			pair << arr.slice!(0)
- 			pairs << pair
- 		end
- 	end
- 	return [pairs, remainder]
- end
-
  def determine_group_sizes(size) #given ideal group size YAY THIS WORKS
  	group_sizes = []
  	students_array = self.students.to_a
@@ -74,10 +47,10 @@ class Cohort < ActiveRecord::Base
  	remainder = num_students % size
  	num_groups = num_students/size ##number of groups, aside from the remainder group (if it exists)
  	if remainder + 1 == size
- 		group_sizes << remainder
- 		while (group_sizes.length < (num_groups + 1))
+ 		while (group_sizes.length < (num_groups))
  			group_sizes << size
  		end
+ 		group_sizes << remainder
  	else
  		while remainder > 0
  			group_sizes << (size + 1)
@@ -119,8 +92,6 @@ class Cohort < ActiveRecord::Base
  		group.flatten!
  	end
 
- 	#groups.each(&:flatten!)
-
  	groups
  end
 
@@ -147,7 +118,6 @@ def generate_one_grouping(size)
  	end
  	cohort_groupings
  end
-
 
  def groups_with_score(size)
  	cohort_groupings = generate_many_groupings(size)
@@ -186,8 +156,9 @@ def generate_one_grouping(size)
 end
 
 ###########################################################################################
-
- # def groups_with_score(size) ###not the function i wanna use
+###not the function i wanna use
+###prefer a different return value
+ # def groups_with_score(size)
  # 	cohort_groupings = generate_many_groupings(size)
  # 	# cohort_id = self.id
  # 	cohort_groupings.map do |cohort|
@@ -201,5 +172,23 @@ end
  # 	end
  # 	# cohort_groupings.sort!{|cohort, score| score}
  # 	cohort_groupings
+ # end
+
+ # def pair_students  ##outputs the right thing but not helpful
+ # 	arr = self.students.to_a
+ # 	arr.shuffle!
+ # 	pairs = []
+ # 	remainder = []
+ # 	while !arr.empty?
+ # 		if arr.length == 1
+ # 			remainder << arr[0]
+ # 		else
+ # 			pair = []
+ # 			pair << arr.slice!(0)
+ # 			pair << arr.slice!(0)
+ # 			pairs << pair
+ # 		end
+ # 	end
+ # 	return [pairs, remainder]
  # end
 
