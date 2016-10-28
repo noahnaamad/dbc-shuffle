@@ -3,9 +3,6 @@ class Cohort < ActiveRecord::Base
   has_many :students, through: :groups
   belongs_to :location
 
-###ideas for improving algorithm:
-###rotate a matrix by a set amount each time
-###do not sort groupings, just find the minimum score --> reduce time complexity
 
   def pair_students ##not class method because running on one instance of cohort
 	arr = self.students.to_a
@@ -19,13 +16,14 @@ class Cohort < ActiveRecord::Base
 			arr.each_with_index do |student, index|
 				for i in 1..(arr.length - index - 1)
 					# if student.unpaired_with_students.any?
-						# pairs_arr = []
-						# student_to_pair_with = student.unpaired_with_students.first
-						# pair_index = arr.index(student_to_pair_with)
-						# pairs_arr << arr.slice!(pair_index)
-						# pairs_arr << arr.slice!(index)
-						# pairs << pairs_arr
-						# next
+					# 	pairs_arr = []
+					# 	student_to_pair_with = student.unpaired_with_students.first
+					# 	pair_index = arr.index(student_to_pair_with)
+					# 	pairs_arr << arr.slice!(pair_index)
+					# 	pairs_arr << arr.slice!(index)
+					# 	pairs << pairs_arr
+					# 	next
+					# end
 					compare = arr[index + i]
 					current_pair = Pair.find_by(stud1_id: student.id, stud2_id: compare.id)
 					current_pair2 = Pair.find_by(stud1_id: compare.id, stud2_id: student.id)
