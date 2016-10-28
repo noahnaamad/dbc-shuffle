@@ -3,6 +3,28 @@ class Cohort < ActiveRecord::Base
   has_many :students, through: :groups
   belongs_to :location
 
+	def determine_group_sizes(size) #given ideal group size YAY THIS WORKS
+	 	group_sizes = []
+	 	students_array = self.students.to_a
+	 	num_students = students_array.length
+	 	remainder = num_students % size
+	 	num_groups = num_students/size ##number of groups, aside from the remainder group (if it exists)
+	 	if remainder + 1 == size
+	 		while (group_sizes.length < (num_groups))
+	 			group_sizes << size
+	 		end
+	 		group_sizes << remainder
+	 	else
+	 		while remainder > 0
+	 			group_sizes << (size + 1)
+	 			remainder -= 1
+	 		end
+	 		while group_sizes.length < num_groups
+	 			group_sizes << size
+	 		end
+	 	end
+	 	group_sizes
+	 end
 
   def pair_students ##not class method because running on one instance of cohort
 	arr = self.students.to_a
@@ -40,28 +62,6 @@ class Cohort < ActiveRecord::Base
 	return [pairs, remainder]
  end
 
- def determine_group_sizes(size) #given ideal group size YAY THIS WORKS
- 	group_sizes = []
- 	students_array = self.students.to_a
- 	num_students = students_array.length
- 	remainder = num_students % size
- 	num_groups = num_students/size ##number of groups, aside from the remainder group (if it exists)
- 	if remainder + 1 == size
- 		while (group_sizes.length < (num_groups))
- 			group_sizes << size
- 		end
- 		group_sizes << remainder
- 	else
- 		while remainder > 0
- 			group_sizes << (size + 1)
- 			remainder -= 1
- 		end
- 		while group_sizes.length < num_groups
- 			group_sizes << size
- 		end
- 	end
- 	group_sizes
- end
 
  def generate_one_grouping(size)
  	group_sizes_array = determine_group_sizes(size)
@@ -152,6 +152,21 @@ def generate_one_grouping(size)
  		end
  end
 
+##----------------  second approach!! ----------------##
+	def group_by_week(size, week)
+		arr = self.students.to_a
+		primes = [2, 3, 5, 7, 11, 13, 17] #prime numbers
+		skip_by = primes[week - 1]
+		group_sizes = determine_group_sizes(size)
+		cohort = []
+		index = 0
+		group_sizes.each do |group|
+			group_members = []
+			while group > 0
+
+			end
+		end
+	end
 
 end
 
